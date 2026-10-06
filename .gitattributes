@@ -1,0 +1,11 @@
+# Consistent line endings across Windows / macOS / Linux.
+# The repo stores LF for all text, and the working copy is checked out as LF,
+# so bash scripts never pick up CRLF and break with "bad interpreter: /bin/bash^M".
+* text=auto eol=lf
+
+# These MUST stay LF or they break on macOS / Linux bash:
+*.sh text eol=lf
+.githooks/pre-commit text eol=lf
+
+# PowerShell: CRLF is the Windows convention (it runs fine either way).
+*.ps1 text eol=crlf

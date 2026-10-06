@@ -1,0 +1,30 @@
+# Personal data — a filled profile must never enter this repository.
+# (Templates live under templates/; these block common accident paths at repo root.)
+/ABOUTME.md
+/PRIVATE.md
+/delta.md
+*.local.md
+.agent-profile/
+
+# Secrets — never commit.
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Installer backups (created when the script is run inside the repo)
+*.bak
+*.bak.*
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo

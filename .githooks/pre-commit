@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# aboutme-connector pre-commit guard
+# Refuses to commit personal profile files (ABOUTME.md / delta.md / PRIVATE.md)
+# anywhere except the shipped blank templates under templates/.
+# Enable with:  git config core.hooksPath .githooks
+if git diff --cached --name-only --diff-filter=ACM \
+  | grep -vE '^templates/' \
+  | grep -qE '(^|/)(ABOUTME|delta|PRIVATE)\.md$'; then
+  echo "pre-commit: personal profile file staged — refusing to commit." >&2
+  echo "  Your profile belongs in ~/.agent-profile/, never in git." >&2
+  echo "  (blank templates under templates/ are fine; bypass if truly needed: git commit --no-verify)" >&2
+  exit 1
+fi
+exit 0

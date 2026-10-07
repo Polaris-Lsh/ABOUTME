@@ -41,6 +41,22 @@ flowchart LR
 
 ## Install
 
+### Option A — let your agent do it (recommended)
+
+Paste this to the agent you're already working in; it installs and connects itself, then tells you what to do next:
+
+```text
+Set up AboutMe for me, fully automatically:
+1. If this repo isn't on this machine yet, clone https://github.com/Polaris-Lsh/ABOUTME.git into a side/temp folder (not inside my projects).
+2. Run the installer for my OS — Windows: `powershell -ExecutionPolicy Bypass -File install.ps1`; macOS/Linux: `bash install.sh`. (Add `-Lang zh` / `--lang zh` if I work in Chinese.)
+3. Verify: `~/.agent-profile/` exists; `ABOUTME.md` front-matter is `updated: never` when fresh; a pointer block was added to my agent entry file(s).
+4. If YOUR platform isn't in the installer's supported list, paste the generic snippet from the repo's `adapters/generic.md` into your own startup-instructions / rules file so you're connected too.
+5. Never invent my profile content. If `ABOUTME.md` is still the seed (`updated: never`), run the guided setup in `ONBOARDING.md` by asking me — don't guess.
+6. Finish by telling me in three lines: what you installed where, how to read my profile, and the on/off switches.
+```
+
+### Option B — run it yourself
+
 Windows:
 
 ```powershell

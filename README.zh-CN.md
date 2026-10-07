@@ -41,6 +41,22 @@ flowchart LR
 
 ## 安装
 
+### 方式 A — 让 Agent 代劳(推荐)
+
+把下面这段粘给你正在用的 Agent;它会自己装好、把自己接上,再告诉你下一步:
+
+```text
+帮我全自动装好 AboutMe:
+1. 若本机还没有这个仓库,把 https://github.com/Polaris-Lsh/ABOUTME.git clone 到旁路/临时目录(别放进我的项目)。
+2. 按我的系统跑安装——Windows:`powershell -ExecutionPolicy Bypass -File install.ps1`;macOS/Linux:`bash install.sh`。(我用中文就加 `-Lang zh` / `--lang zh`。)
+3. 验证:`~/.agent-profile/` 存在;全新时 `ABOUTME.md` 的 front-matter 是 `updated: never`;我的 Agent 入口文件里加上了指针块。
+4. 若**你**这个平台不在安装脚本支持列表里,把仓库 `adapters/generic.md` 的通用片段粘进你自己的启动指令/规则文件,把你自己也接上。
+5. 不要替我编档案内容。若 `ABOUTME.md` 还是种子(`updated: never`),按 `ONBOARDING.md` 问我引导,不要猜。
+6. 最后用三行告诉我:装到了哪、怎么读我的档案、开关怎么用。
+```
+
+### 方式 B — 自己跑
+
 Windows：
 
 ```powershell

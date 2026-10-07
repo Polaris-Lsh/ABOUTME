@@ -4,11 +4,26 @@
 
 English | [中文](README.zh-CN.md)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+![Zero dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen)
+
 ## Why
 
 New agents don't know you, and what you tell agent A never reaches agent B. This keeps **one human-owned profile any agent can read** — a portable "who I am / how to work with me", not another knowledge store.
 
 ## How it works
+
+```mermaid
+flowchart LR
+  P["~/.agent-profile/<br/>ABOUTME.md · your profile<br/>delta.md · cross-agent feed"]
+  C["Claude Code"] <--> P
+  O["opencode"] <--> P
+  X["Codex"] <--> P
+  D["…any agent"] <--> P
+```
+
+> Each agent's entry file holds only a **one-line pointer**; it reads the profile on demand and appends what it learns to `delta.md` (tagged `@agent`). No copy, no server.
 
 - **One source of truth** — `~/.agent-profile/ABOUTME.md`; each agent's entry file holds a one-line pointer, never a copy.
 - **On-demand** — nothing is injected at session start; the profile is read only when you ask (any wording) or an agent needs your collaboration style.

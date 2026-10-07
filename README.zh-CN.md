@@ -4,11 +4,26 @@
 
 [English](README.md) | 中文
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+![Zero dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen)
+
 ## 解决什么
 
 新 Agent 不认识你，你在 A 讲过的偏好 B 永远不知道。本项目维护**一份你自己拥有、任何 Agent 都能读**的档案——它是可携带的"我是谁 / 怎么跟我协作"，不是又一个知识仓库。
 
 ## 怎么运作
+
+```mermaid
+flowchart LR
+  P["~/.agent-profile/<br/>ABOUTME.md · 你的档案<br/>delta.md · 跨 Agent 动态"]
+  C["Claude Code"] <--> P
+  O["opencode"] <--> P
+  X["Codex"] <--> P
+  D["…任意 Agent"] <--> P
+```
+
+> 每个 Agent 的入口文件只放**一行指针**;按需读档案,把学到的追加进 `delta.md`(带 `@来源` 标签)。不复制、无服务器。
 
 - **一份真相**：`~/.agent-profile/ABOUTME.md`；各 Agent 入口只放一行指针，不复制内容。
 - **按需加载**：开场不注入；只在你要求（任意措辞）或 Agent 需要你的协作方式时才读。
